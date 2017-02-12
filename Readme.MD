@@ -4,4 +4,4 @@ I have used my react skills on this projects.
 
 You can view this app on Heroku link below.
 
-Link: http://sleepy-hollows-73130.herokuapp.com
+Link: http://react-weatherapp007.herokuapp.com/
