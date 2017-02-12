@@ -13594,7 +13594,7 @@ var About = props => {
     return React.createElement(
         'h2',
         null,
-        'About Component'
+        'About'
     );
 };
 
@@ -13610,7 +13610,7 @@ var Example = props => {
     return React.createElement(
         'h2',
         null,
-        'Example Component'
+        'Example'
     );
 };
 
