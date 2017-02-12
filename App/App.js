@@ -8,6 +8,10 @@ const Example = require('./components/Example');
 const Main = require('./components/Main');
 const Weather = require('./components/Weather');
 
+//Foundation
+require("style-loader!css-loader!foundation-sites/dist/foundation.min.css")
+$(document).foundation();
+
 const app = document.getElementById("app");
 
 ReactDOM.render(
