@@ -13889,7 +13889,7 @@ var Weather = React.createClass({
             if (isLoading) {
                 return React.createElement(
                     'h3',
-                    null,
+                    { className: 'text-center' },
                     'Fetching Weather...'
                 );
             } else if (temp && location) {
@@ -13901,8 +13901,8 @@ var Weather = React.createClass({
             'div',
             null,
             React.createElement(
-                'h2',
-                null,
+                'h1',
+                { className: 'text-center' },
                 'Get Weather'
             ),
             React.createElement(WeatherForm, { onSearch: this.handleSearch }),
@@ -13939,7 +13939,7 @@ var WeatherForm = React.createClass({
             React.createElement("input", { type: "text", ref: "location", placeholder: "Search Weather by City" }),
             React.createElement(
                 "button",
-                null,
+                { className: "button expanded" },
                 "Get Weather"
             )
         );
@@ -13957,16 +13957,16 @@ const React = __webpack_require__(5);
 var WeatherMessage = ({ temp, location }) => {
 
     return React.createElement(
-        'div',
+        "div",
         null,
         React.createElement(
-            'h2',
-            null,
-            'It is ',
+            "h3",
+            { className: "text-center" },
+            "It is ",
             temp,
-            ' \u2109 in ',
+            " \u2109 in ",
             location,
-            '.'
+            "."
         )
     );
 };
