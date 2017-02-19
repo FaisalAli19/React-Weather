@@ -14143,7 +14143,13 @@ var Nav = React.createClass({
 
     onSearch: function (e) {
         e.preventDefault();
-        alert("Coming Soon");
+        var cityName = this.refs.location.value;
+        var encodedCityName = encodeURIComponent(cityName);
+
+        if (typeof encodedCityName === "string" && encodedCityName.length > 0) {
+            this.refs.location.value = "";
+            window.location.hash = `#/?location=${encodedCityName}`;
+        }
     },
     render: function () {
         return React.createElement(
@@ -14201,7 +14207,7 @@ var Nav = React.createClass({
                         React.createElement(
                             'li',
                             null,
-                            React.createElement('input', { type: 'search', placeholder: 'Search Weather by City' })
+                            React.createElement('input', { type: 'search', ref: 'location', placeholder: 'Search Weather by City' })
                         ),
                         React.createElement(
                             'li',
@@ -14242,7 +14248,9 @@ var Weather = React.createClass({
 
         this.setState({
             isLoading: true,
-            errorMessage: undefined
+            errorMessage: undefined,
+            location: undefined,
+            temp: undefined
         });
 
         openWeatherMap.getTemp(location).then(function (temp) {
@@ -14257,6 +14265,22 @@ var Weather = React.createClass({
                 errorMessage: e.message
             });
         });
+    },
+    componentDidMount: function () {
+        var location = this.props.location.query.location;
+
+        if (location && location.length > 0) {
+            this.handleSearch(location);
+            window.location.hash = "#/";
+        }
+    },
+    componentWillReceiveProps: function (newProps) {
+        var location = newProps.location.query.location;
+
+        if (location && location.length > 0) {
+            this.handleSearch(location);
+            window.location.hash = "#/";
+        }
     },
     render: function () {
         var { isLoading, temp, location, errorMessage } = this.state;
