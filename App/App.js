@@ -13,7 +13,7 @@ require("style-loader!css-loader!foundation-sites/dist/foundation.min.css")
 $(document).foundation();
 
 //App css
-require("style-loader!css-loader!./styles/app.css")
+require("style-loader!css-loader!sass-loader!./styles/app.scss")
 
 const app = document.getElementById("app");
 
