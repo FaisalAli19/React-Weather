@@ -12,6 +12,9 @@ const Weather = require('./components/Weather');
 require("style-loader!css-loader!foundation-sites/dist/foundation.min.css")
 $(document).foundation();
 
+//App css
+require("style-loader!css-loader!./styles/app.css")
+
 const app = document.getElementById("app");
 
 ReactDOM.render(
